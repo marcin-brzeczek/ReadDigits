@@ -8,7 +8,6 @@ import interfejsy.MnoznikInterface;
 import interfejsy.SumatorInterface;
 
 import java.io.*;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
@@ -19,7 +18,9 @@ import java.util.regex.Pattern;
 public class ArytmetykaPlikowa implements SumatorInterface, MnoznikInterface {
 
 	static String filename;
+	//PrzykÅ‚ad na stringach:
 	ArrayList<String[]> list = new ArrayList<String[]>();
+	//PrzykÅ‚ad na character:
 	ArrayList<char[]> list2 = new ArrayList<char[]>();
 
 	int lengthOfLine;
@@ -69,8 +70,8 @@ public class ArytmetykaPlikowa implements SumatorInterface, MnoznikInterface {
 			IOException {
 		int lineCounter2 = 0;
 		char[] rowDigits;
-		long result = 0L;
-		result = 1L;
+		
+		long result = 1L;
 		Pattern p = Pattern.compile("[0-9]");
 
 		BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -107,7 +108,7 @@ public class ArytmetykaPlikowa implements SumatorInterface, MnoznikInterface {
 
 				lineCounter2++;
 			}
-	br.close();
+	        br.close();
 		return result;
 	}
 
@@ -123,8 +124,8 @@ public class ArytmetykaPlikowa implements SumatorInterface, MnoznikInterface {
 		ws.join();
 		ws2.start();
 		ws2.join();
-		System.out.println("Wynik w¹tka sumuj¹cego: " + w.getWynik());
-		System.out.println("Wynik w¹tka mnozacego: " + w2.getWynik());
+		System.out.println("Wynik wÂ¹tka sumujÂ¹cego: " + w.getWynik());
+		System.out.println("Wynik wÂ¹tka mnozacego: " + w2.getWynik());
 
 		try {
 			long wynikSumowania = ob.sum("test.txt", 3);
@@ -138,12 +139,12 @@ public class ArytmetykaPlikowa implements SumatorInterface, MnoznikInterface {
 			System.out.println("Brak pliku. ");
 			e.printStackTrace();
 		} catch (Exception e) {
-			System.out.println("z³apa³eœ ale zwyk³ym wyj¹tkiem a nie w³asnym");
+			System.out.println("zÂ³apaÂ³eÅ“ ale zwykÂ³ym wyjÂ¹tkiem a nie wÂ³asnym");
 			e.printStackTrace();
 		}
 		try {
 			long wynikMnozenia = ob.mnoz("test.txt", 2);
-			System.out.println("WYNIK Mno¿enia :" + wynikMnozenia);
+			System.out.println("WYNIK MnoÂ¿enia :" + wynikMnozenia);
 
 		} catch (WyjatekMnozenia e) {
 			System.out.println(e + " w wierszu: " + e.getLine()
@@ -153,7 +154,7 @@ public class ArytmetykaPlikowa implements SumatorInterface, MnoznikInterface {
 			System.out.println("Brak pliku. ");
 			e.printStackTrace();
 		} catch (Exception e) {
-			System.out.println("z³apa³eœ ale zwyk³ym wyj¹tkiem a nie w³asnym");
+			System.out.println("zÂ³apaÂ³eÅ“ ale zwykÂ³ym wyjÂ¹tkiem a nie wÂ³asnym");
 			e.printStackTrace();
 		}
 
